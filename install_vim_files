@@ -53,6 +53,9 @@ get_repo "scrooloose" "nerdcommenter"
 echo "Installing snipMate"
 get_repo "msanders" "snipmate.vim"
 
+echo "Installing vim-ruby"
+get_repo "vim-ruby" "vim-ruby"
+
 echo "Installing vim-ruby-debugger"
 get_repo "astashov" "vim-ruby-debugger"
 
