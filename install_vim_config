@@ -69,12 +69,6 @@ set wildmode=list:longest
 " NERDTree options
 map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
 
-" FuzzyFinder options
-let g:fuzzy_ignore = "*.log"
-let g:fuzzy_matching_limit = 70
-map <leader>t :FuzzyFinderTextMate<CR>
-map <leader>b :FuzzyFinderBuffer<CR>
-
 " Rails.vim options
 let g:rails_default_file='config/database.yml'
 
