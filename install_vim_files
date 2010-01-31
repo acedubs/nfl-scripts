@@ -33,9 +33,26 @@ get_repo() {
     fi
 }
 
+add_vimrc() {
+    vimrc_file=$1
+    vimrc_cmd=$2
+    vimrc_file_path="/home/`whoami`/.$vimrc_file"
+    
+    echo "Checking to see if '$vimrc_cmd' has already been added to .$1"
+    contains=`grep "$vimrc_cmd" $vimrc_file_path | wc -l`
+
+    if [ $contains == 0 ]
+    then
+	echo "Hasn't been added, adding now."
+	echo "$vimrc_cmd" >> $vimrc_file_path
+    else
+	echo "It was already added. Good to go"
+    fi
+}
+
 echo "Creating .vim folders if necessary"
-cd $DOTVIM/bundle/
 mkdir -p $DOTVIM/{autoload,bundle}
+cd $DOTVIM/bundle/
 
 tpope_repos=(rails haml git cucumber fugitive vividchalk surround unimpaired abolish repeat endwise)
 
@@ -86,14 +103,6 @@ rm pathogen.vim
 # Fetching directly from the URL because pathogen must be installed in autoload
 wget http://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim
 
-echo "Checking to see if pathogen has already been added to .vimrc"
-pathogen_cmd="call pathogen#runtime_append_all_bundles()"
-contains=`grep "$pathogen_cmd" ~/.vimrc | wc -l`
+add_vimrc "vimrc" "call pathogen#runtime_append_all_bundles()" 
 
-if [ $contains == 0 ]
-then
-	echo "Hasn't been added, adding now."
-	echo "$pathogen_cmd" >> ~/.vimrc
-else
-	echo "It was already added. Good to go"
-fi
+add_vimrc "gvimrc" "colorscheme vividchalk" 
