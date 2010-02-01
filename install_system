@@ -1,0 +1,5 @@
+#!/bin/bash
+
+# Install packages to get a stock Linux Mint 8 installation ready for use
+
+sudo apt-get install startupmanager non-free-codecs libxine1-ffmpeg gxine mencoder vlc
