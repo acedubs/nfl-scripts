@@ -5,12 +5,12 @@ VIMBACKUP="/home/`whoami`/.vim/backups"
 
 if [ ! -d $VIMTMP ]
 then
-  mkdir $VIMTMP
+  mkdir -p $VIMTMP
 fi
 
 if [ ! -d $VIMBACKUP ]
 then
-  mkdir $VIMBACKUP
+  mkdir -p $VIMBACKUP
 fi
 
 echo "
