@@ -73,8 +73,14 @@ get_repo "msanders" "snipmate.vim"
 echo "Installing vim-ruby"
 get_repo "vim-ruby" "vim-ruby"
 
+if [ ! -d "$DOTVIM/bundle/vim-ruby-debugger" ]
+then
+  echo "Cleaning up vim-ruby-debugger"
+  rm -rf $DOTVIM/bundle/vim-ruby-debugger/{bin,doc,plugin}
+fi
 echo "Installing vim-ruby-debugger"
 get_repo "astashov" "vim-ruby-debugger"
+cp -R "$DOTVIM/bundle/vim-ruby-debugger/vim/*" "$DOTVIM/bundle/vim-ruby-debugger"
 
 echo "Installing jQuery"
 mkdir -p jquery/syntax

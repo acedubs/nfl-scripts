@@ -80,7 +80,7 @@ let mapleader = \",\"
 set wildmode=list:longest
 
 \" NERDTree options
-map <leader>d :execute 'NERDTreeToggle ' . getcwd()<CR>
+map <leader>D :execute 'NERDTreeToggle ' . getcwd()<CR>
 
 \" Pathogen options
 map <leader>h :call pathogen#helptags()<CR>

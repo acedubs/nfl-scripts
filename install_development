@@ -62,5 +62,8 @@ cd $SOURCES
 echo "Installing sqlite3 gem"
 sudo gem install sqlite3-ruby
 
+echo "Installing ruby-debug-ide"
+sudo gem install ruby-debug-ide
+
 echo "Installing Rails"
 sudo gem install rails
