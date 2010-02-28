@@ -1,7 +1,10 @@
 #!/bin/bash
 #
-# Script for configuring a CentOS 5.4 virtual machine to resemble a hostgator vps instance
+# Script for configuring a CentOS 5.4 virtual machine image to resemble a hostgator vps instance
 # Install the command-line server version of CentOS with the defaults
+#
+# Fetch this script using:
+# wget http://github.com/aghecht/scripts/raw/master/install_hostgator_vps_centos_5_4 
 
 yum erase -y system-config-nfs
 yum erase -y acl
