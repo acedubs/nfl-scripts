@@ -82,7 +82,6 @@ yum erase -y irqbalance
 yum erase -y kbd
 yum erase -y keyutils
 yum erase -y krb5-workstation
-yum install -y ksh.x86_64
 yum erase -y lftp
 yum erase -y libX11
 yum erase -y libICE
