@@ -1,7 +1,14 @@
 #!/bin/bash
 
-SOURCES="/home/`whoami`/sources"
-PAGE="http://www.rubyenterpriseedition.com/download.html"
+echo "Installing pre-requisites"
+yum install -y gcc-c++
+yum install -y patch
+yum install -y zlib-devel
+yum install -y openssl-devel
+yum install -y readline-devel
+yum install -y sqlite3-devel.x86_64
+
+SOURCES="/tmp/sources"
 
 if [ -d $SOURCES ]
 then
@@ -14,14 +21,14 @@ fi
 ## Install Ruby Enterprise Edition
 #
 echo "Installing Ruby Enterprise Edition"
-package=`curl -s $PAGE | grep 'Source code' | cut -d\" -f2`
-wget -c $package
+wget http://rubyforge.org/frs/download.php/68719/ruby-enterprise-1.8.7-2010.01.tar.gz
+tar xzvf ruby-enterprise-1.8.7-2010.01.tar.gz
+./ruby-enterprise-1.8.7-2010.01/installer
 
-download=`ls -c ruby-enterprise* | cut -d" " -f1 | head -n 1`
-name=`echo $download | sed 's/.tar.gz//'`
+ln -s /opt/ruby-enterprise-1.8.7-2010.01 /opt/ruby-enterprise
+ln -s /opt/ruby-enterprise/bin/ruby /usr/bin/ruby
+ln -s /opt/ruby-enterprise/bin/gem /usr/bin/gem
+ln -s /opt/ruby-enterprise/bin/irb /usr/bin/irb
 
-tar xzf $download
-
-sudo ./$name/installer
-
-echo "For sqlite3, you might want to gem+ sqlite3-ruby"
+echo "Updating /etc/profile"
+echo "export PATH=/opt/ruby-enterprise/bin:\$PATH" >> /etc/profile
