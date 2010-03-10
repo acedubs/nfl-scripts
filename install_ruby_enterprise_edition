@@ -5,8 +5,8 @@ yum install -y gcc-c++
 yum install -y patch
 yum install -y zlib-devel
 yum install -y openssl-devel
-yum install -y readline-devel
-yum install -y sqlite3-devel.x86_64
+yum install -y readline-devel.x86_64
+yum install -y sqlite-devel.x86_64
 
 SOURCES="/tmp/sources"
 
@@ -32,3 +32,7 @@ ln -s /opt/ruby-enterprise/bin/irb /usr/bin/irb
 
 echo "Updating /etc/profile"
 echo "export PATH=/opt/ruby-enterprise/bin:\$PATH" >> /etc/profile
+source /etc/profile
+
+echo "Installing Phusion Passenger for nginx"
+/opt/ruby-enterprise/bin/passenger-install-nginx-module
