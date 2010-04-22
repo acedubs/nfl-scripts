@@ -5,6 +5,8 @@ JQUERY=12107
 MULTIVALS=3582
 GENUTILS=5663
 DBEXT=11341
+FUZZYFINDER=9643
+TAGLIST=7701
 
 if [ ! -e `which git` ]
 then
@@ -80,7 +82,12 @@ then
 fi
 echo "Installing vim-ruby-debugger"
 get_repo "astashov" "vim-ruby-debugger"
-cp -R "$DOTVIM/bundle/vim-ruby-debugger/vim/*" "$DOTVIM/bundle/vim-ruby-debugger"
+mkdir $DOTVIM/bundle/vim-ruby-debugger/bin
+cp $DOTVIM/bundle/vim-ruby-debugger/vim/bin/ruby_debugger.rb $DOTVIM/bundle/vim-ruby-debugger/bin
+mkdir $DOTVIM/bundle/vim-ruby-debugger/doc
+cp $DOTVIM/bundle/vim-ruby-debugger/vim/doc/ruby_debugger.txt $DOTVIM/bundle/vim-ruby-debugger/doc
+mkdir $DOTVIM/bundle/vim-ruby-debugger/plugin
+cp $DOTVIM/bundle/vim-ruby-debugger/vim/plugin/ruby_debugger.vim $DOTVIM/bundle/vim-ruby-debugger/plugin
 
 echo "Installing jQuery"
 mkdir -p jquery/syntax
@@ -93,6 +100,29 @@ wget -c -O multivals/multivals.vim http://www.vim.org/scripts/download_script.ph
 echo "Installing genutils"
 mkdir genutils
 wget -c -O genutils/genutils.vim http://www.vim.org/scripts/download_script.php?src_id=$GENUTILS
+
+echo "Installing fuzzyfinder"
+mkdir -p fuzzyfinder/plugin
+wget -c -O fuzzyfinder/plugin/genutils.vim http://www.vim.org/scripts/download_script.php?src_id=$FUZZYFINDER
+
+echo "Installing fuzzyfinder-textmate"
+mkdir -p fuzzyfinder-textmate/plugin
+wget -c -O fuzzyfinder-textmate/plugin/fuzzyfinder_textmate.vim http://github.com/jamis/fuzzyfinder_textmate/raw/b9d541db520268aa6c7e2cb29effe66e05a4d72b/fuzzyfinder_textmate.vim
+
+echo "Installing supertab"
+mkdir -p supertab/doc
+mkdir -p supertab/plugin
+wget -c -O supertab/doc/supertab.txt http://github.com/ervandew/vimfiles/raw/master/vim/doc/supertab.txt
+wget -c -O supertab/plugin/supertab.vim http://github.com/ervandew/vimfiles/raw/bc2af1ee3c8d8c077ecf342bbf55635bec56562b/vim/plugin/supertab.vim
+
+echo "Installing taglist"
+rm -rf taglist
+mkdir taglist
+cd taglist
+wget -c -O taglist.zip http://www.vim.org/scripts/download_script.php?src_id=$TAGLIST
+unzip -a taglist.zip
+rm taglist.zip
+cd ..
 
 # Make sure this is the last plugin to be installed
 echo "Installing dbext"
@@ -108,7 +138,5 @@ echo "Fetching latest pathogen.vim"
 rm pathogen.vim
 # Fetching directly from the URL because pathogen must be installed in autoload
 wget http://github.com/tpope/vim-pathogen/raw/master/autoload/pathogen.vim
-
-add_vimrc "vimrc" "call pathogen#runtime_append_all_bundles()" 
 
 add_vimrc "gvimrc" "colorscheme vividchalk" 
