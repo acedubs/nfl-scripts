@@ -52,8 +52,11 @@ add_vimrc() {
     fi
 }
 
+echo "Copying .vimrc"
+cp .vimrc $HOME
+
 echo "Creating .vim folders if necessary"
-mkdir -p $DOTVIM/{autoload,bundle}
+mkdir -p $DOTVIM/{autoload,bundle,ruby}
 cd $DOTVIM/bundle/
 
 tpope_repos=(rails haml git cucumber fugitive vividchalk surround unimpaired abolish repeat endwise)
@@ -103,11 +106,12 @@ wget -c -O genutils/genutils.vim http://www.vim.org/scripts/download_script.php?
 
 echo "Installing fuzzyfinder"
 mkdir -p fuzzyfinder/plugin
-wget -c -O fuzzyfinder/plugin/genutils.vim http://www.vim.org/scripts/download_script.php?src_id=$FUZZYFINDER
+wget -c -O fuzzyfinder/plugin/fuzzyfinder.vim http://www.vim.org/scripts/download_script.php?src_id=$FUZZYFINDER
 
 echo "Installing fuzzyfinder-textmate"
 mkdir -p fuzzyfinder-textmate/plugin
 wget -c -O fuzzyfinder-textmate/plugin/fuzzyfinder_textmate.vim http://github.com/jamis/fuzzyfinder_textmate/raw/b9d541db520268aa6c7e2cb29effe66e05a4d72b/fuzzyfinder_textmate.vim
+wget -c -O $DOTVIM/ruby/fuzzy_file_finder.rb http://github.com/jamis/fuzzy_file_finder/raw/master/lib/ruzzy_file_finder.rb
 
 echo "Installing supertab"
 mkdir -p supertab/doc
