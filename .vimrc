@@ -79,7 +79,7 @@ map <leader>fb :FuzzyFinderBuffer<CR>
 
 " TagList options
 map <leader>tt :TlistToggle<CR>
-map <leader>tc :!ctags -R .*<CR>
+map <leader>tc :!ctags -R *<CR>
 
 " NERDTree options
 map <leader>nt :execute 'NERDTreeToggle ' . getcwd()<CR>
