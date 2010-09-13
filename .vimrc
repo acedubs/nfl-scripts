@@ -79,12 +79,13 @@ map <leader>fb :FuzzyFinderBuffer<CR>
 
 " TagList options
 map <leader>tt :TlistToggle<CR>
-map <leader>tc :!ctags -R .*<CR>
+map <leader>tc :!ctags -R *<CR>
 
 " NERDTree options
 map <leader>nt :execute 'NERDTreeToggle ' . getcwd()<CR>
 map <leader>nf :NERDTreeFind<cr>
 map <leader>nm :NERDTreeMirror<cr>
+let g:NERDTreeHijackNetrw = 0     " We need Netrw in case we happen to be using the vcscommand plugin
 
 " Rails.vim options
 let g:rails_default_file='config/database.yml'
