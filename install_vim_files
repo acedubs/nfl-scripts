@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DOTVIM="/home/`whoami`/.vim"
+DOTVIM="$HOME/.vim"
 JQUERY=12107
 MULTIVALS=3582
 GENUTILS=5663
@@ -38,7 +38,7 @@ get_repo() {
 add_vimrc() {
     vimrc_file=$1
     vimrc_cmd=$2
-    vimrc_file_path="/home/`whoami`/.$vimrc_file"
+    vimrc_file_path="$HOME/.$vimrc_file"
     
     echo "Checking to see if '$vimrc_cmd' has already been added to .$1"
     contains=`grep "$vimrc_cmd" $vimrc_file_path | wc -l`
@@ -59,7 +59,7 @@ echo "Creating .vim folders if necessary"
 mkdir -p $DOTVIM/{autoload,bundle,ruby}
 cd $DOTVIM/bundle/
 
-tpope_repos=(rails haml git cucumber fugitive vividchalk surround unimpaired abolish repeat endwise)
+tpope_repos=(rails haml git cucumber fugitive vividchalk surround unimpaired abolish repeat endwise markdown)
 
 for r in ${tpope_repos[*]}; do
 	repo="vim-$r"
