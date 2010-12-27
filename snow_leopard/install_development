@@ -1,0 +1,56 @@
+#!/bin/bash
+
+# Install Ruby
+sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev build-essential bison openssl libreadline5 libreadline-dev curl zlib1g zlib1g-dev libssl-dev libxml2-dev
+
+
+# Install vim and gvim
+sudo apt-get install vim vim-gnome
+
+
+# Install git
+sudo apt-get install git git-doc
+
+# Configure name and e-mail in gitconfig
+git config --global user.name "Alan Hecht"
+git config --global user.email aghecht42@gmail.com
+
+# Configure default git text editor
+git config --global core.editor gvim
+
+# Setup git bash completion
+cd ~/
+git clone git://git.kernel.org/pub/scm/git/git.git
+mv git/contrib/completion/git-completion.bash to ~/.git-completion.sh
+rm -rf ~/git
+echo "export GIT_PS1_SHOWDIRTYSTATE=1" >> ~/.bashrc
+echo "export GIT_PS1_SHOWSTASHSTATE=1" >> ~/.bashrc
+echo "source ~/.git-completion.sh" >> ~/.bashrc
+
+
+# install RVM
+bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
+
+# Load RVM into shell
+echo '[[ -s $HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+
+# RVM bash completion complete
+echo '[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion' >> ~/.bashrc
+
+# One-time source of RVM
+source ~/.rvm/scripts/rvm
+
+# Verify RVM installation
+rvm -v
+
+# Install latest stable 1.9.2 release and make it default
+rvm install 1.9.2
+rvm --default 1.9.2
+
+# Install more rubies
+rvm install 1.8.7
+
+# Create a rails 3 gemset
+rvm gemset create rails3
+rvm 1.9.2-p136@rails3
+gem install rails
