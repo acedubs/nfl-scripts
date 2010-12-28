@@ -1,0 +1,18 @@
+#!/bin/bash
+
+SSH_DIR="/home/`whoami`/.ssh"
+DROPBOX_DIR="/home/`whoami`/Dropbox"
+DROPBOX_SSH_DIR="/home/`whoami`/Dropbox/ssh"
+
+cd ~/
+
+if [ -d "$DROPBOX_DIR" ]
+then
+  mkdir $SSH_DIR
+  chmod 700 $SSH_DIR
+  cd $DROPBOX_SSH_DIR
+  echo "Copying id_rsa files"
+  cp * $SSH_DIR
+else
+  echo "Need to install Dropbox first"
+fi
