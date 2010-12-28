@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Install Ruby
-sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev build-essential bison openssl libreadline5 libreadline-dev curl zlib1g zlib1g-dev libssl-dev libxml2-dev
+sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev build-essential bison openssl libreadline5 libreadline-dev curl zlib1g zlib1g-dev libssl-dev libxml2-dev libxslt1-dev
 
 
 # Install vim and gvim
