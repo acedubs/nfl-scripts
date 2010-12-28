@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Install pre-requisites before running scripts
+sudo apt-get install git
