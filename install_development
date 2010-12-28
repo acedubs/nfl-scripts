@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ ! -f "/usr/bin/git" ]
+then
+  echo "Must run install_prereq_ubuntu first"
+  exit
+fi
+
 # Install Ruby
 sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev build-essential bison openssl libreadline5 libreadline-dev curl zlib1g zlib1g-dev libssl-dev libxml2-dev
 
@@ -8,8 +14,8 @@ sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev 
 sudo apt-get install vim vim-gnome
 
 
-# Install git
-sudo apt-get install git git-doc
+# Install additional git stuff 
+sudo apt-get install git-doc
 
 # Configure name and e-mail in gitconfig
 git config --global user.name "Alan Hecht"
