@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DROPBOX_DIR="/home/`whoami`/Dropbox"
+
+# Make sure Dropbox is installed
+if [ -d "$DROPBOX_DIR" ]
+then
+  echo "Need to install Dropbox first"
+  exit
+fi
+
+ln -s ~/Dropbox/vim/.vim .vim
+ln -s ~/Dropbox/vim/.vimrc .vimrc
+ln -s ~/Dropbox/vim/.gvimrc .gvimrc
+
+# We don't want to share tmp and backup directories
+mkdir -p ~/.vim_local/backups
+mkdir -p ~/.vim_local/tmp
