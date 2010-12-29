@@ -10,8 +10,10 @@ then
 fi
 
 ln -s ~/Dropbox/vim/.vim .vim
-ln -s ~/Dropbox/vim/.vimrc .vimrc
 ln -s ~/Dropbox/vim/.gvimrc .gvimrc
+
+# We don't want to link .vimrc since we might play around with it.
+cp ~/Dropbox/vim/.vimrc .vimrc
 
 # We don't want to share tmp and backup directories
 mkdir -p ~/.vim_local/backups
