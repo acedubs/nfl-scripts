@@ -1,10 +1,7 @@
 #!/bin/bash
 
-if [ ! -f "/usr/bin/git" ]
-then
-  echo "Must run install_prereq_ubuntu first"
-  exit
-fi
+# Install additional git stuff 
+sudo apt-get install git git-doc
 
 # Install Ruby
 sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev build-essential bison openssl libreadline5 libreadline-dev curl zlib1g zlib1g-dev libssl-dev libxml2-dev
@@ -13,9 +10,6 @@ sudo apt-get install irb libopenssl-ruby libreadline-ruby rdoc ri ruby ruby-dev 
 # Install vim and gvim
 sudo apt-get install vim vim-gnome
 
-
-# Install additional git stuff 
-sudo apt-get install git-doc
 
 # Configure name and e-mail in gitconfig
 git config --global user.name "Alan Hecht"
@@ -27,7 +21,7 @@ git config --global core.editor gvim
 # Setup git bash completion
 cd ~/
 git clone git://git.kernel.org/pub/scm/git/git.git
-mv git/contrib/completion/git-completion.bash to ~/.git-completion.sh
+mv git/contrib/completion/git-completion.bash ~/.git-completion.sh
 rm -rf ~/git
 echo "export GIT_PS1_SHOWDIRTYSTATE=1" >> ~/.bashrc
 echo "export GIT_PS1_SHOWSTASHSTATE=1" >> ~/.bashrc
@@ -38,7 +32,7 @@ echo "source ~/.git-completion.sh" >> ~/.bashrc
 bash < <( curl http://rvm.beginrescueend.com/releases/rvm-install-head )
 
 # Load RVM into shell
-echo '[[ -s $HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
+echo '[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"' >> ~/.bashrc
 
 # RVM bash completion complete
 echo '[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion' >> ~/.bashrc
