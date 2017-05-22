@@ -1,0 +1,25 @@
+https://is.gd/Cwzc8g
+
+OAuth	getRequestToken	Returns Request Token
+ 	getAuthorizeURL	Returns URL for E*TRADE authorization page
+ 	getAccessToken	Returns access token
+ 	renewAccessToken	Renews an access token
+ 	revokeAccessToken	Revokes an access token
+Accounts	getAccountList	Returns the complete list of E*TRADE accounts for the current user, including IRA, savings, checking, etc.
+ 	getAccountBalance	Returns the current account balance and related details for a specified account
+ 	getAccountPositions	Returns the positions held in the specified account
+ 	getAlerts	Lists alerts for the current user
+ 	getAlertDetails	Retrieves alert detail
+ 	deleteAlert	Method to delete a particular alert
+Market	getQuote	Returns current market information for equities and options
+ 	productLookup	Looks up basic information about a stock or other instrument
+ 	getExpiryDates	Returns a list of the expiration dates for options that have the specified underlier
+ 	getOptionChain	Returns a list of option chains associated with a specific underlier
+Order	getOrderList	Returns a list of open orders or orders updated during the current day
+ 	previewEquityOrder	Returns a preview of an equity order
+ 	placeEquityOrder	Submits an equity order
+ 	previewChangeEquityOrder	Returns a preview of a change to an equity order
+ 	placeChangeEquityOrder	Executes a change equity order request.
+ 	previewOptionOrder	Returns a preview of an option order
+  
+  http://php.net/conferences/index.php#id2017-05-16-1
