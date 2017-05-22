@@ -1,1 +1,18 @@
 
+public String oauth_access_token = null; // Variable to store access token 
+ public String oauth_access_token_secret = null; // Variable to store access token secret
+ public String oauth_verify_code = "Your verification_code"; // Should contain the Verification Code received from the authorization step
+ 
+ request = new ClientRequest(); // Instantiate ClientRequest
+ request.setEnv(Environment.SANDBOX); // Use sandbox environment
+ // Prepare request
+ request.setConsumerKey(oauth_consumer_key); // Set consumer key
+ request.setConsumerSecret(oauth_consumer_secret); // Set consumer secret
+ request.setToken(oauth_request_token); // Set request token
+ request.setTokenSecret(oauth_request_token_secret); // Set request-token secret
+ request.setVerifierCode(oauth_verify_code); // Set verification code
+ 
+ // Get access token
+ token = client.getAccessToken(request); // Get access-token object
+ oauth_access_token = token.getToken(); // Access token string
+ oauth_access_token_secret = token.getSecret(); // Access token secret
